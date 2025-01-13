@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: -7997368249061045651}
   - component: {fileID: 7713952698138894261}
   - component: {fileID: 3021216530744308619}
+  - component: {fileID: -4222563333844987415}
   m_Layer: 0
   m_Name: WhiteRabbitBig
   m_TagString: Untagged
@@ -254,6 +255,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.47998238, y: 0.59517145, z: 1.0181427}
   m_Center: {x: -0.003066063, y: 0.28768694, z: 0.06531525}
+--- !u!114 &-4222563333844987415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933037628837888670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d1918d3b3438f428405612ee4d9d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemName: "\u5927\u767D\u5154"
 --- !u!1 &2549113722643523614
 GameObject:
   m_ObjectHideFlags: 0
