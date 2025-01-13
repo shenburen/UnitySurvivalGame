@@ -58,15 +58,12 @@ public class AI_Movement : MonoBehaviour
                     transform.position += transform.forward * moveSpeed * Time.deltaTime;
                     break;
             }
-
             if (walkCounter <= 0)
             {
-                stopPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 isWalking = false;
-                //stop movement
+                stopPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 transform.position = stopPosition;
                 animator.SetBool("isRunning", false);
-                //reset the waitCounter
                 waitCounter = waitTime;
             }
         }
