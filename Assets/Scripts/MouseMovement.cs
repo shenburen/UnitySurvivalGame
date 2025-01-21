@@ -17,19 +17,22 @@ public class MouseMovement : MonoBehaviour
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (InventorySystem.Instance.isOpen == false)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // 向上看、向下看
-        xRotation -= mouseY;
+            // 向上看、向下看
+            xRotation -= mouseY;
 
-        // 防止过度旋转
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            // 防止过度旋转
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // 向左看、向右看
-        YRotation += mouseX;
+            // 向左看、向右看
+            YRotation += mouseX;
 
-        // 应用旋转
-        transform.localRotation = Quaternion.Euler(xRotation, YRotation, 0f);
+            // 应用旋转
+            transform.localRotation = Quaternion.Euler(xRotation, YRotation, 0f);
+        }
     }
 }
