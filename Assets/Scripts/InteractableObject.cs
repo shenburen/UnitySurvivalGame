@@ -17,8 +17,12 @@ public class InteractableObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerInRange && SelectionManager.Instance.onTarget)
         {
-            InventorySystem.Instance.AddToInventory(ItemName);
-            Destroy(gameObject);
+            // 检查背包是否有位置
+            if (!InventorySystem.Instance.CheckIfFull())
+            {
+                InventorySystem.Instance.AddToInventory(ItemName);
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -13,7 +13,6 @@ public class InventorySystem : MonoBehaviour
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
     public bool isOpen;
-    public bool isFull;
 
     private void Awake()
     {
@@ -62,25 +61,47 @@ public class InventorySystem : MonoBehaviour
 
     public void AddToInventory(string itemName)
     {
-        if (CheckIfFull())
-        {
 
+        whatSlotToEquip = FindNextEmptySlot();
+        itemToAdd = Instantiate(Resources.Load<GameObject>(itemName), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+        itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+
+        itemList.Add(itemName);
+
+    }
+
+    public bool CheckIfFull()
+    {
+        int counter = 0;
+
+        foreach (GameObject slot in slotList)
+        {
+            if (slot.transform.childCount > 0)
+            {
+                counter += 1;
+            }
+        }
+
+        if (counter == 21)
+        {
+            return true;
         }
         else
         {
-            whatSlotToEquip = FindNextEmptySlot();
-            itemToAdd = Instantiate(Resources.Load<GameObject>(itemName), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
-            itemToAdd.transform.SetParent(whatSlotToEquip.transform);
+            return false;
         }
-    }
-
-    private bool CheckIfFull()
-    {
-        throw new NotImplementedException();
     }
 
     private GameObject FindNextEmptySlot()
     {
-        throw new NotImplementedException();
+        foreach (GameObject slot in slotList)
+        {
+            if (slot.transform.childCount == 0)
+            {
+                return slot;
+            }
+        }
+
+        return new GameObject();
     }
 }

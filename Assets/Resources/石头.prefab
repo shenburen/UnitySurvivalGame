@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 15316806682747935}
   - component: {fileID: -5981758080588886332}
   m_Layer: 5
-  m_Name: stone_INV
+  m_Name: "\u77F3\u5934"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56c6fd9d4d945d43ae04fb6c8abaa5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!225 &-5981758080588886332
 CanvasGroup:
   m_ObjectHideFlags: 0
