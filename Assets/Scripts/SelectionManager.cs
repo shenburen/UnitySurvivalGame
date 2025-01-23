@@ -15,12 +15,6 @@ public class SelectionManager : MonoBehaviour
     public GameObject interaction_Info_UI;
     Text interaction_text;
 
-    private void Start()
-    {
-        onTarget = false;
-        interaction_text = interaction_Info_UI.GetComponent<Text>();
-    }
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -31,6 +25,12 @@ public class SelectionManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        onTarget = false;
+        interaction_text = interaction_Info_UI.GetComponent<Text>();
     }
 
     void Update()
