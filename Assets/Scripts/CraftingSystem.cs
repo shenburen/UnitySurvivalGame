@@ -39,7 +39,7 @@ public class CraftingSystem : MonoBehaviour
 
         // 斧子
         craftAxeBtn = toolsScreenUI.transform.Find("Axe").transform.Find("Button").GetComponent<Button>();
-        craftAxeBtn.onClick.AddListener(delegate { CraftAnyItem()});
+        craftAxeBtn.onClick.AddListener(delegate { CraftAnyItem(); });
         axeReq1 = toolsScreenUI.transform.Find("Axe").transform.Find("Req1").GetComponent<Text>();
         axeReq2 = toolsScreenUI.transform.Find("Axe").transform.Find("Req2").GetComponent<Text>();
     }
@@ -52,13 +52,16 @@ public class CraftingSystem : MonoBehaviour
 
     void CraftAnyItem()
     {
-        // 添加条目到背包里
-
-        // 从背包里移除材料
+        InventorySystem.Instance.AddToInventory();
+        InventorySystem.Instance.RemoveItem();
+        InventorySystem.Instance.ReCalculateList();
+        RefreshNeededItems();
     }
 
     void Update()
     {
+        RefreshNeededItems();
+
         if (Input.GetKeyDown(KeyCode.C) && !isOpen)
         {
             craftingScreenUI.SetActive(true);
@@ -69,8 +72,17 @@ public class CraftingSystem : MonoBehaviour
         {
             craftingScreenUI.SetActive(false);
             toolsScreenUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
+            if (!InventorySystem.Instance.isOpen)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
             isOpen = false;
         }
+    }
+
+    private void RefreshNeededItems()
+    {
+        int stone_count = 0;
+        int stick_count = 0;
     }
 }
